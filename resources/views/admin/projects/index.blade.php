@@ -20,6 +20,7 @@
                 <td>{{$project->title}}</td>
                 <td>{{$project->client_name}}</td>
                 <td>{{$project->slug}}</td>
+                <td><a href="{{route('admin.projects.show' , $project->id)}}" class="btn btn-info">info</a></td>
               </tr>
           @endforeach
         </tbody>
