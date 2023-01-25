@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -47,9 +48,13 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(Request $request,)
     {
-        return view('admin.projects.show', compact('project'));
+        dd($request->path());
+        // if ($request->path() === $project->slug) {
+
+        //     return view('admin.projects.show', compact('project'));
+        // }
     }
 
     /**
