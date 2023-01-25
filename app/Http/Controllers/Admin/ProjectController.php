@@ -48,13 +48,15 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,)
+    public function show(Request $request, $slug)
     {
-        dd($request->path());
+        // dd($request->path());
+        $project = Project::where('slug', $slug)->first();
         // if ($request->path() === $project->slug) {
 
         //     return view('admin.projects.show', compact('project'));
         // }
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
