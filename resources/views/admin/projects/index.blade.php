@@ -4,7 +4,7 @@
 <div class="container mt-3">
     <div class="d-flex align-items-center">
         <h1>Lista Projects</h1>
-        <a href="#" class="btn btn-success h-100 ms-3"><i class="fa-regular fa-square-plus fa-lg fa-fw"></i> </a>
+        <a href="#" class="btn btn-success  ms-3"><i class="fa-regular fa-square-plus fa-lg fa-fw"></i> </a>
     </div>
     <table class="table ">
         <thead>
