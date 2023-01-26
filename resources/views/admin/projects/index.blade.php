@@ -29,12 +29,12 @@
                     More
                 </button>
                 <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{route('admin.projects.show' , $project->slug)}}" class="dropdown-item" >info</a>
-                    </li>
-                    <li>
-                        <a href="{{route('admin.projects.edit' , $project)}}" class="dropdown-item">modifica</a>
-                    </li>
+                  <li>
+                      <a href="{{route('admin.projects.show' , $project->slug)}}" class="dropdown-item" >info</a>
+                  </li>
+                  <li>
+                      <a href="{{route('admin.projects.edit' , $project)}}" class="dropdown-item">modifica</a>
+                  </li>
                 </ul>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">
