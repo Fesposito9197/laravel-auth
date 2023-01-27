@@ -96,6 +96,9 @@ class ProjectController extends Controller
         $old_title = $project->title;
         $project->slug = Str::slug($data['title']);
         if (isset($data['cover_image'])) {
+            if ($project->cover_image) {
+                Storage::disk('public')->delete($project->cover_image);
+            }
             $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
         }
 
@@ -113,6 +116,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $old_title = $project->title;
+        if ($project->cover_image) {
+            Storage::disk('public')->delete($project->cover_image);
+        }
         $project->delete();
 
         return redirect()->route('admin.projects.index')->with('message', "Il Post $old_title è stato eliminato con successo!");
