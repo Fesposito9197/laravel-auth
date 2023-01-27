@@ -24,7 +24,7 @@
               <td>{{$project->title}}</td>
               <td>{{$project->client_name}}</td>
               <td>{{$project->slug}}</td>
-              <td class="dropdown d-flex">
+              <td class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     More
                 </button>
@@ -38,7 +38,7 @@
                 </ul>
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modal-{{$project->id}}">
-                  <i class="fa-solid fa-dumpster  fa-lg fa-fw"></i>
+                  <i class="fa-solid fa-dumpster "></i>
                 </button>
               </td>
             </tr>

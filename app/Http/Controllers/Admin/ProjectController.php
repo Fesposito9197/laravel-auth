@@ -9,6 +9,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -43,9 +44,12 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
+        $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
+
         $new_project = new Project();
         $new_project->fill($data);
         $new_project->slug = Str::slug($new_project->title);
+        $new_project->cover_image = $img_path;
         $new_project->save();
 
         return redirect()->route('admin.projects.index')->with('message', "Il Post $new_project->title è stato creato con successo!");
