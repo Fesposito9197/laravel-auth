@@ -14,7 +14,7 @@
             </div>
         </div>
             
-        @endif
+        @else
         <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{$project->title}}</h5>
@@ -23,6 +23,8 @@
               <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Go Back</a>
             </div>
           </div>
+            
+        @endif
         {{-- <h1>{{$project->title}}</h1>
         <h3>Progetto eseguito per: {{$project->client_name}}</h3>
         <img src="{{asset('storage/'. $project->cover_image)}}" alt="{{$project->title}}">

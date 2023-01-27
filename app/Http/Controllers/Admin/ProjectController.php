@@ -44,12 +44,13 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
 
-        $img_path = Storage::disk('public')->put('uploads', $data['cover_image']);
-
         $new_project = new Project();
         $new_project->fill($data);
         $new_project->slug = Str::slug($new_project->title);
-        $new_project->cover_image = $img_path;
+        if (isset($data['cover_image'])) {
+
+            $new_project->cover_image = Storage::disk('public')->put('uploads', $data['cover_image']);
+        }
         $new_project->save();
 
         return redirect()->route('admin.projects.index')->with('message', "Il Post $new_project->title è stato creato con successo!");
@@ -94,6 +95,10 @@ class ProjectController extends Controller
 
         $old_title = $project->title;
         $project->slug = Str::slug($data['title']);
+        if (isset($data['cover_image'])) {
+            $data['cover_image'] = Storage::disk('public')->put('uploads', $data['cover_image']);
+        }
+
         $project->update($data);
 
         return redirect()->route('admin.projects.index')->with('message', "Il Post $old_title è stato modificato con successo!");
